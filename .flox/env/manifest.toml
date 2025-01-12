@@ -1,0 +1,117 @@
+version = 1
+
+
+[install]
+nodejs.pkg-path = "nodejs_22"
+pnpm.pkg-path = "pnpm"
+postgresql.pkg-path = "postgresql_17"
+gum.pkg-path = "gum"
+
+
+[vars]
+DOTENV_FILE = ".env"
+
+
+[hook]
+on-activate = '''
+
+# Dotenv
+if [ -f "${FLOX_ENV_PROJECT}/${DOTENV_FILE}" ]; then
+  set -o allexport
+  source "${FLOX_ENV_PROJECT}/${DOTENV_FILE}"
+  set +o allexport
+  echo "✅ Environment variables loaded from '${DOTENV_FILE}' file"
+fi
+
+
+# PostgreSQL
+export PGDIR="${FLOX_ENV_CACHE}/postgres"
+export PGDATA="${PGDIR}/data"
+export PGHOST="${PGDIR}/run"
+export PGCONFIGFILE="${PGDIR}/postgresql.conf"
+export LOG_PATH="${PGHOST}/LOG"
+export SESSION_SECRET="${USER}-session-secret"
+export DATABASE_URL="postgresql:///${PGDATABASE}?host=${PGHOST}&port=${PGPORT}"
+
+if [[ ! -d "${PGHOST}" ]]; then
+  mkdir -p "${PGHOST}"
+fi
+
+if [[ ! -d "${PGDATA}" ]]; then
+  mkdir -p "${PGDATA}"
+  pg_initdb() {
+    initdb "${PGDATA}" \
+      --locale=C \
+      --encoding=UTF8 \
+      -A md5 \
+      --auth=trust \
+      --username "${PGUSER}" \
+      --pwfile=<(echo "${PGPASS}")
+  }
+  export -f pg_initdb  # This is needed for gum to be able to call function
+  if [[ "${FLOX_ENVS_TESTING}" == "1" ]]; then
+    pg_initdb
+  else
+    gum spin --spinner dot --title "Running initdb in ${PGDATA}" -- bash -c pg_initdb
+  fi
+  echo "✅ Initialize PostgreSQL (${PGDATA})"
+
+fi
+
+if [[ ! -f "${PGCONFIGFILE}" ]]; then
+  tee -a "${PGCONFIGFILE}" > /dev/null << EOF
+listen_addresses = '${PGHOSTADDR}';
+port = '${PGPORT}';
+unix_socket_directories = '${PGHOST}';
+unix_socket_permissions = '0700';
+EOF
+  echo "✅ Configure PostgreSQL (${PGCONFIGFILE})"
+fi
+
+pg_ctl -D "${PGDATA}" -w start -o "-c unix_socket_directories=${PGHOST} -c listen_addresses=${PGHOSTADDR} -p ${PGPORT}" > /dev/null
+if psql -lqt | cut -d \| -f 1 | grep -qw ${PGDATABASE}; then
+  echo "✅ Database '${PGDATABASE}' already exists"
+else
+  createdb
+  echo "✅ Database '${PGDATABASE}' created"
+fi
+pg_ctl -D "${PGDATA}" -m fast -w stop > /dev/null
+
+'''
+
+[profile]
+common = '''
+cat <<EOM
+     ╔═══════════════════════════════════════════════╗
+     ║                                               ║
+     ║  Start services in the background:            ║
+     ║  👉 flox services start                       ║
+     ║  👉 flox activate --start-services            ║
+     ║                                               ║
+     ║  Try to connect to PostgreSQL:                ║
+     ║  👉 psql                                      ║
+     ║                                               ║
+     ║  NOTE! This project uses pnpm                 ║
+     ║                                               ║
+     ║  Install:                                     ║
+     ║  👉 pnpm install                              ║
+     ║                                               ║
+     ║  Run locally:                                 ║
+     ║  👉 pnpm dev                                  ║
+     ║                                               ║
+     ╚═══════════════════════════════════════════════╝
+EOM
+'''
+
+
+[services]
+postgres.command = "postgres -D ${PGDATA} -c unix_socket_directories=${PGHOST} -c listen_addresses=${PGHOSTADDR} -p ${PGPORT}"
+
+
+[options]
+systems = [
+  "aarch64-darwin",
+  "aarch64-linux",
+  "x86_64-darwin",
+  "x86_64-linux",
+]
