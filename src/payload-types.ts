@@ -67,18 +67,26 @@ export interface Config {
   };
   blocks: {};
   collections: {
+    pages: Page;
+    glossaryItems: GlossaryItem;
+    principles: Principle;
+    guidelines: Guideline;
+    criteria: Criterion;
     users: User;
     media: Media;
-    pages: Page;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
   collectionsJoins: {};
   collectionsSelect: {
+    pages: PagesSelect<false> | PagesSelect<true>;
+    glossaryItems: GlossaryItemsSelect<false> | GlossaryItemsSelect<true>;
+    principles: PrinciplesSelect<false> | PrinciplesSelect<true>;
+    guidelines: GuidelinesSelect<false> | GuidelinesSelect<true>;
+    criteria: CriteriaSelect<false> | CriteriaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
-    pages: PagesSelect<false> | PagesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -114,6 +122,134 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  title?: string | null;
+  slug?: string | null;
+  pageUrl?: string | null;
+  demoContent?: boolean | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  metaDescription: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "glossaryItems".
+ */
+export interface GlossaryItem {
+  id: number;
+  term?: string | null;
+  termDescription?: string | null;
+  wcagRelated?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "principles".
+ */
+export interface Principle {
+  id: number;
+  title?: string | null;
+  slug?: string | null;
+  pageUrl?: string | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  metaDescription: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "guidelines".
+ */
+export interface Guideline {
+  id: number;
+  title?: string | null;
+  slug?: string | null;
+  pageUrl?: string | null;
+  Principle?: (number | null) | Principle;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  metaDescription: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "criteria".
+ */
+export interface Criterion {
+  id: number;
+  title?: string | null;
+  slug?: string | null;
+  pageUrl?: string | null;
+  Principle?: (number | null) | Principle;
+  Guideline?: (number | null) | Guideline;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  metaDescription: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -160,69 +296,31 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
-export interface Page {
-  id: number;
-  title?: string | null;
-  slug?: string | null;
-  pageUrl?: string | null;
-  introduction?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  sourceMaterial?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  metaDescription: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
   id: number;
   document?:
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'glossaryItems';
+        value: number | GlossaryItem;
+      } | null)
+    | ({
+        relationTo: 'principles';
+        value: number | Principle;
+      } | null)
+    | ({
+        relationTo: 'guidelines';
+        value: number | Guideline;
+      } | null)
+    | ({
+        relationTo: 'criteria';
+        value: number | Criterion;
+      } | null)
     | ({
         relationTo: 'users';
         value: number | User;
@@ -230,10 +328,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
-      } | null)
-    | ({
-        relationTo: 'pages';
-        value: number | Page;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -279,6 +373,73 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  pageUrl?: T;
+  demoContent?: T;
+  content?: T;
+  metaDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "glossaryItems_select".
+ */
+export interface GlossaryItemsSelect<T extends boolean = true> {
+  term?: T;
+  termDescription?: T;
+  wcagRelated?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "principles_select".
+ */
+export interface PrinciplesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  pageUrl?: T;
+  content?: T;
+  metaDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "guidelines_select".
+ */
+export interface GuidelinesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  pageUrl?: T;
+  Principle?: T;
+  content?: T;
+  metaDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "criteria_select".
+ */
+export interface CriteriaSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  pageUrl?: T;
+  Principle?: T;
+  Guideline?: T;
+  content?: T;
+  metaDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
@@ -316,21 +477,6 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages_select".
- */
-export interface PagesSelect<T extends boolean = true> {
-  title?: T;
-  slug?: T;
-  pageUrl?: T;
-  introduction?: T;
-  content?: T;
-  sourceMaterial?: T;
-  metaDescription?: T;
-  updatedAt?: T;
-  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

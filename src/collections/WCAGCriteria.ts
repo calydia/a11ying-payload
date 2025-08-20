@@ -1,7 +1,11 @@
 import type { CollectionConfig } from 'payload'
 
-export const Pages: CollectionConfig = {
-  slug: 'pages',
+export const WCAGCriteria: CollectionConfig = {
+  slug: 'criteria',
+  labels: {
+    singular: 'WCAG Criterion',
+    plural: 'WCAG Criteria',
+  },
   fields: [
     {
       name: 'title',
@@ -19,10 +23,18 @@ export const Pages: CollectionConfig = {
       localized: true,
     },
     {
-      name: 'demoContent',
-      type: 'checkbox',
-      label: 'This page is a demo page',
-      defaultValue: false,
+      name: 'Principle',
+      type: 'relationship',
+      relationTo: 'principles',
+      hasMany: false,
+      localized: true,
+    },
+    {
+      name: 'Guideline',
+      type: 'relationship',
+      relationTo: 'guidelines',
+      hasMany: false,
+      localized: true,
     },
     {
       name: 'content',
