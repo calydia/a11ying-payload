@@ -94,8 +94,18 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    mainNav: MainNav;
+    footerNav: FooterNav;
+    WCAGNav: WCAGNav;
+    WCAGFooterNav: WCAGFooterNav;
+  };
+  globalsSelect: {
+    mainNav: MainNavSelect<false> | MainNavSelect<true>;
+    footerNav: FooterNavSelect<false> | FooterNavSelect<true>;
+    WCAGNav: WCAGNavSelect<false> | WCAGNavSelect<true>;
+    WCAGFooterNav: WCAGFooterNavSelect<false> | WCAGFooterNavSelect<true>;
+  };
   locale: 'en' | 'fi';
   user: User & {
     collection: 'users';
@@ -509,6 +519,176 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "mainNav".
+ */
+export interface MainNav {
+  id: number;
+  firstLevel: {
+    buttonFirst?: string | null;
+    secondLevel?:
+      | {
+          buttonSecond?: string | null;
+          secondLevelLinks?: (number | null) | Page;
+          thirdLevel?:
+            | {
+                buttonThird?: string | null;
+                thirdLevelLinks?: (number | null) | Page;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footerNav".
+ */
+export interface FooterNav {
+  id: number;
+  navigationLinks: {
+    menuLink?: (number | null) | Page;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "WCAGNav".
+ */
+export interface WCAGNav {
+  id: number;
+  firstLevel: {
+    buttonFirst?: string | null;
+    firstLevelLinks?: (number | null) | Page;
+    secondLevel?:
+      | {
+          buttonSecond?: string | null;
+          secondLevelLinks?: (number | null) | Page;
+          thirdLevel?:
+            | {
+                buttonThird?: string | null;
+                thirdLevelLinks?: (number | null) | Page;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "WCAGFooterNav".
+ */
+export interface WCAGFooterNav {
+  id: number;
+  navigationLinks: {
+    menuLink?: (number | null) | Page;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "mainNav_select".
+ */
+export interface MainNavSelect<T extends boolean = true> {
+  firstLevel?:
+    | T
+    | {
+        buttonFirst?: T;
+        secondLevel?:
+          | T
+          | {
+              buttonSecond?: T;
+              secondLevelLinks?: T;
+              thirdLevel?:
+                | T
+                | {
+                    buttonThird?: T;
+                    thirdLevelLinks?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footerNav_select".
+ */
+export interface FooterNavSelect<T extends boolean = true> {
+  navigationLinks?:
+    | T
+    | {
+        menuLink?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "WCAGNav_select".
+ */
+export interface WCAGNavSelect<T extends boolean = true> {
+  firstLevel?:
+    | T
+    | {
+        buttonFirst?: T;
+        firstLevelLinks?: T;
+        secondLevel?:
+          | T
+          | {
+              buttonSecond?: T;
+              secondLevelLinks?: T;
+              thirdLevel?:
+                | T
+                | {
+                    buttonThird?: T;
+                    thirdLevelLinks?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "WCAGFooterNav_select".
+ */
+export interface WCAGFooterNavSelect<T extends boolean = true> {
+  navigationLinks?:
+    | T
+    | {
+        menuLink?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

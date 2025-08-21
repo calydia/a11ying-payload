@@ -14,6 +14,11 @@ import { WCAGPrinciples } from './collections/WCAGPrinciples'
 import { WCAGGuidelines } from './collections/WCAGGuidelines'
 import { WCAGCriteria } from './collections/WCAGCriteria'
 
+import { mainNavigation } from './globals/mainNavigation'
+import { WCAGNavigation } from './globals/WCAGNavigation'
+import { WCAGFooter } from './globals/WCAGFooter'
+import { footerNavigation } from './globals/footerNavigation'
+
 import { Abbreviation } from './blocks/abbreviation'
 import { Language } from './blocks/language'
 import { CodeBlock } from './blocks/codeBlock'
@@ -31,6 +36,7 @@ export default buildConfig({
     },
   },
   collections: [Pages, GlossaryItems, WCAGPrinciples, WCAGGuidelines, WCAGCriteria, Users, Media],
+  globals: [mainNavigation, footerNavigation, WCAGNavigation, WCAGFooter],
   editor: lexicalEditor({
     features: ({ defaultFeatures, rootFeatures }) => [
       ...defaultFeatures,
