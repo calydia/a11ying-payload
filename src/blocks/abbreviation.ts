@@ -9,11 +9,13 @@ export const Abbreviation: Block = {
   fields: [
     {
       name: 'abbreviation',
+      label: 'Abbreviation',
       type: 'text',
       required: true,
     },
     {
       name: 'definition',
+      label: 'Definition',
       type: 'text',
       required: true,
     },

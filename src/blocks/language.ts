@@ -9,6 +9,7 @@ export const Language: Block = {
   fields: [
     {
       name: 'language',
+      label: 'Language',
       type: 'text',
       required: true,
     },

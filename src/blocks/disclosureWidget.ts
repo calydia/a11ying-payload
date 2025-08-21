@@ -10,11 +10,13 @@ export const DisclosureWidget: Block = {
   fields: [
     {
       type: 'text',
-      name: 'Disclosure Widget Heading',
+      name: 'heading',
+      label: 'Disclosure Widget Heading',
     },
     {
       type: 'richText',
-      name: 'Disclosure Widget Content',
+      name: 'content',
+      label: 'Disclosure Widget Content',
       editor: lexicalEditor({}),
     },
   ],

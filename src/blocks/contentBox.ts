@@ -10,7 +10,8 @@ export const ContentBox: Block = {
   fields: [
     {
       type: 'text',
-      name: 'Content Box Heading',
+      name: 'heading',
+      label: 'Content Box Heading',
     },
     {
       type: 'select',
@@ -33,7 +34,8 @@ export const ContentBox: Block = {
     },
     {
       type: 'richText',
-      name: 'Content Box Content',
+      name: 'boxContent',
+      label: 'Content Box Content',
       editor: lexicalEditor({}),
     },
   ],
