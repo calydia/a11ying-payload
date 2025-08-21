@@ -1,7 +1,7 @@
 {
   "name": "accessibility-payload",
   "version": "1.0.0",
-  "description": "A blank template to get started with Payload 3.0",
+  "description": "My accessibility site backend with Payload CMS",
   "license": "MIT",
   "type": "module",
   "scripts": {
