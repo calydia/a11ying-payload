@@ -68,10 +68,13 @@ export interface Config {
   blocks: {};
   collections: {
     pages: Page;
+    demopages: Demopage;
     glossaryItems: GlossaryItem;
+    reqPages: ReqPage;
     principles: Principle;
     guidelines: Guideline;
     criteria: Criterion;
+    blogCards: BlogCard;
     users: User;
     media: Media;
     'payload-locked-documents': PayloadLockedDocument;
@@ -81,10 +84,13 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     pages: PagesSelect<false> | PagesSelect<true>;
+    demopages: DemopagesSelect<false> | DemopagesSelect<true>;
     glossaryItems: GlossaryItemsSelect<false> | GlossaryItemsSelect<true>;
+    reqPages: ReqPagesSelect<false> | ReqPagesSelect<true>;
     principles: PrinciplesSelect<false> | PrinciplesSelect<true>;
     guidelines: GuidelinesSelect<false> | GuidelinesSelect<true>;
     criteria: CriteriaSelect<false> | CriteriaSelect<true>;
+    blogCards: BlogCardsSelect<false> | BlogCardsSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -97,14 +103,22 @@ export interface Config {
   globals: {
     mainNav: MainNav;
     footerNav: FooterNav;
-    WCAGNav: WCAGNav;
-    WCAGFooterNav: WCAGFooterNav;
+    frontPage: FrontPage;
+    ReqNav: ReqNav;
+    ReqFooterNav: ReqFooterNav;
+    menuTitles: MenuTitle;
+    notFound: NotFound;
+    ReqFrontPage: ReqFrontPage;
   };
   globalsSelect: {
     mainNav: MainNavSelect<false> | MainNavSelect<true>;
     footerNav: FooterNavSelect<false> | FooterNavSelect<true>;
-    WCAGNav: WCAGNavSelect<false> | WCAGNavSelect<true>;
-    WCAGFooterNav: WCAGFooterNavSelect<false> | WCAGFooterNavSelect<true>;
+    frontPage: FrontPageSelect<false> | FrontPageSelect<true>;
+    ReqNav: ReqNavSelect<false> | ReqNavSelect<true>;
+    ReqFooterNav: ReqFooterNavSelect<false> | ReqFooterNavSelect<true>;
+    menuTitles: MenuTitlesSelect<false> | MenuTitlesSelect<true>;
+    notFound: NotFoundSelect<false> | NotFoundSelect<true>;
+    ReqFrontPage: ReqFrontPageSelect<false> | ReqFrontPageSelect<true>;
   };
   locale: 'en' | 'fi';
   user: User & {
@@ -142,7 +156,49 @@ export interface Page {
   title?: string | null;
   slug?: string | null;
   pageUrl?: string | null;
-  demoContent?: boolean | null;
+  lead?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  metaDescription: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "demopages".
+ */
+export interface Demopage {
+  id: number;
+  title?: string | null;
+  slug?: string | null;
+  pageUrl?: string | null;
   content?: {
     root: {
       type: string;
@@ -176,11 +232,55 @@ export interface GlossaryItem {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reqPages".
+ */
+export interface ReqPage {
+  id: number;
+  title?: string | null;
+  slug?: string | null;
+  pageUrl?: string | null;
+  lead?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  metaDescription: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "principles".
  */
 export interface Principle {
   id: number;
   title?: string | null;
+  principleNumber?: string | null;
   slug?: string | null;
   pageUrl?: string | null;
   content?: {
@@ -209,9 +309,10 @@ export interface Principle {
 export interface Guideline {
   id: number;
   title?: string | null;
+  guidelineNumber?: string | null;
+  Principle?: (number | null) | Principle;
   slug?: string | null;
   pageUrl?: string | null;
-  Principle?: (number | null) | Principle;
   content?: {
     root: {
       type: string;
@@ -238,10 +339,14 @@ export interface Guideline {
 export interface Criterion {
   id: number;
   title?: string | null;
-  slug?: string | null;
-  pageUrl?: string | null;
+  criterionNumber?: string | null;
+  criterionLevel?: string | null;
+  wcagVersion?: string | null;
+  criterionSort?: number | null;
   Principle?: (number | null) | Principle;
   Guideline?: (number | null) | Guideline;
+  slug?: string | null;
+  pageUrl?: string | null;
   content?: {
     root: {
       type: string;
@@ -258,8 +363,41 @@ export interface Criterion {
     [k: string]: unknown;
   } | null;
   metaDescription: string;
+  cardContent?: string | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blogCards".
+ */
+export interface BlogCard {
+  id: number;
+  title?: string | null;
+  url?: string | null;
+  date?: string | null;
+  image?: (number | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -287,25 +425,6 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: number;
-  alt: string;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -316,8 +435,16 @@ export interface PayloadLockedDocument {
         value: number | Page;
       } | null)
     | ({
+        relationTo: 'demopages';
+        value: number | Demopage;
+      } | null)
+    | ({
         relationTo: 'glossaryItems';
         value: number | GlossaryItem;
+      } | null)
+    | ({
+        relationTo: 'reqPages';
+        value: number | ReqPage;
       } | null)
     | ({
         relationTo: 'principles';
@@ -330,6 +457,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'criteria';
         value: number | Criterion;
+      } | null)
+    | ({
+        relationTo: 'blogCards';
+        value: number | BlogCard;
       } | null)
     | ({
         relationTo: 'users';
@@ -389,7 +520,20 @@ export interface PagesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   pageUrl?: T;
-  demoContent?: T;
+  lead?: T;
+  content?: T;
+  metaDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "demopages_select".
+ */
+export interface DemopagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  pageUrl?: T;
   content?: T;
   metaDescription?: T;
   updatedAt?: T;
@@ -408,10 +552,25 @@ export interface GlossaryItemsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reqPages_select".
+ */
+export interface ReqPagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  pageUrl?: T;
+  lead?: T;
+  content?: T;
+  metaDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "principles_select".
  */
 export interface PrinciplesSelect<T extends boolean = true> {
   title?: T;
+  principleNumber?: T;
   slug?: T;
   pageUrl?: T;
   content?: T;
@@ -425,9 +584,10 @@ export interface PrinciplesSelect<T extends boolean = true> {
  */
 export interface GuidelinesSelect<T extends boolean = true> {
   title?: T;
+  guidelineNumber?: T;
+  Principle?: T;
   slug?: T;
   pageUrl?: T;
-  Principle?: T;
   content?: T;
   metaDescription?: T;
   updatedAt?: T;
@@ -439,12 +599,29 @@ export interface GuidelinesSelect<T extends boolean = true> {
  */
 export interface CriteriaSelect<T extends boolean = true> {
   title?: T;
-  slug?: T;
-  pageUrl?: T;
+  criterionNumber?: T;
+  criterionLevel?: T;
+  wcagVersion?: T;
+  criterionSort?: T;
   Principle?: T;
   Guideline?: T;
+  slug?: T;
+  pageUrl?: T;
   content?: T;
   metaDescription?: T;
+  cardContent?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blogCards_select".
+ */
+export interface BlogCardsSelect<T extends boolean = true> {
+  title?: T;
+  url?: T;
+  date?: T;
+  image?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -527,15 +704,23 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 export interface MainNav {
   id: number;
   firstLevel: {
-    buttonFirst?: string | null;
+    element?: ('button' | 'link') | null;
+    mainPath: string;
+    button?: string | null;
+    iconClass?: string | null;
+    menuLink?: (number | null) | Page;
     secondLevel?:
       | {
-          buttonSecond?: string | null;
-          secondLevelLinks?: (number | null) | Page;
+          element?: ('button' | 'link') | null;
+          button?: string | null;
+          iconClass?: string | null;
+          menuLink?: (number | null) | Page;
           thirdLevel?:
             | {
-                buttonThird?: string | null;
-                thirdLevelLinks?: (number | null) | Page;
+                element?: ('button' | 'link') | null;
+                button?: string | null;
+                iconClass?: string | null;
+                menuLink?: (number | null) | Page;
                 id?: string | null;
               }[]
             | null;
@@ -554,6 +739,7 @@ export interface MainNav {
 export interface FooterNav {
   id: number;
   navigationLinks: {
+    iconClass?: string | null;
     menuLink?: (number | null) | Page;
     id?: string | null;
   }[];
@@ -562,21 +748,102 @@ export interface FooterNav {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "WCAGNav".
+ * via the `definition` "frontPage".
  */
-export interface WCAGNav {
+export interface FrontPage {
+  id: number;
+  title: string;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  metaDescription: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ReqNav".
+ */
+export interface ReqNav {
   id: number;
   firstLevel: {
-    buttonFirst?: string | null;
-    firstLevelLinks?: (number | null) | Page;
+    element?: ('button' | 'link') | null;
+    mainPath?: string | null;
+    button?: string | null;
+    iconClass?: string | null;
+    menuLink?:
+      | ({
+          relationTo: 'reqPages';
+          value: number | ReqPage;
+        } | null)
+      | ({
+          relationTo: 'principles';
+          value: number | Principle;
+        } | null)
+      | ({
+          relationTo: 'guidelines';
+          value: number | Guideline;
+        } | null)
+      | ({
+          relationTo: 'criteria';
+          value: number | Criterion;
+        } | null);
     secondLevel?:
       | {
-          buttonSecond?: string | null;
-          secondLevelLinks?: (number | null) | Page;
+          element?: ('button' | 'link') | null;
+          button?: string | null;
+          iconClass?: string | null;
+          menuLink?:
+            | ({
+                relationTo: 'reqPages';
+                value: number | ReqPage;
+              } | null)
+            | ({
+                relationTo: 'principles';
+                value: number | Principle;
+              } | null)
+            | ({
+                relationTo: 'guidelines';
+                value: number | Guideline;
+              } | null)
+            | ({
+                relationTo: 'criteria';
+                value: number | Criterion;
+              } | null);
           thirdLevel?:
             | {
-                buttonThird?: string | null;
-                thirdLevelLinks?: (number | null) | Page;
+                element?: ('button' | 'link') | null;
+                button?: string | null;
+                iconClass?: string | null;
+                menuLink?:
+                  | ({
+                      relationTo: 'reqPages';
+                      value: number | ReqPage;
+                    } | null)
+                  | ({
+                      relationTo: 'principles';
+                      value: number | Principle;
+                    } | null)
+                  | ({
+                      relationTo: 'guidelines';
+                      value: number | Guideline;
+                    } | null)
+                  | ({
+                      relationTo: 'criteria';
+                      value: number | Criterion;
+                    } | null);
                 id?: string | null;
               }[]
             | null;
@@ -590,14 +857,84 @@ export interface WCAGNav {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "WCAGFooterNav".
+ * via the `definition` "ReqFooterNav".
  */
-export interface WCAGFooterNav {
+export interface ReqFooterNav {
   id: number;
   navigationLinks: {
-    menuLink?: (number | null) | Page;
+    iconClass?: string | null;
+    menuLink?: (number | null) | ReqPage;
     id?: string | null;
   }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "menuTitles".
+ */
+export interface MenuTitle {
+  id: number;
+  list:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "notFound".
+ */
+export interface NotFound {
+  id: number;
+  title: string;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ReqFrontPage".
+ */
+export interface ReqFrontPage {
+  id: number;
+  title: string;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  metaDescription: string;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -609,17 +946,25 @@ export interface MainNavSelect<T extends boolean = true> {
   firstLevel?:
     | T
     | {
-        buttonFirst?: T;
+        element?: T;
+        mainPath?: T;
+        button?: T;
+        iconClass?: T;
+        menuLink?: T;
         secondLevel?:
           | T
           | {
-              buttonSecond?: T;
-              secondLevelLinks?: T;
+              element?: T;
+              button?: T;
+              iconClass?: T;
+              menuLink?: T;
               thirdLevel?:
                 | T
                 | {
-                    buttonThird?: T;
-                    thirdLevelLinks?: T;
+                    element?: T;
+                    button?: T;
+                    iconClass?: T;
+                    menuLink?: T;
                     id?: T;
                   };
               id?: T;
@@ -638,6 +983,7 @@ export interface FooterNavSelect<T extends boolean = true> {
   navigationLinks?:
     | T
     | {
+        iconClass?: T;
         menuLink?: T;
         id?: T;
       };
@@ -647,24 +993,43 @@ export interface FooterNavSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "WCAGNav_select".
+ * via the `definition` "frontPage_select".
  */
-export interface WCAGNavSelect<T extends boolean = true> {
+export interface FrontPageSelect<T extends boolean = true> {
+  title?: T;
+  content?: T;
+  metaDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ReqNav_select".
+ */
+export interface ReqNavSelect<T extends boolean = true> {
   firstLevel?:
     | T
     | {
-        buttonFirst?: T;
-        firstLevelLinks?: T;
+        element?: T;
+        mainPath?: T;
+        button?: T;
+        iconClass?: T;
+        menuLink?: T;
         secondLevel?:
           | T
           | {
-              buttonSecond?: T;
-              secondLevelLinks?: T;
+              element?: T;
+              button?: T;
+              iconClass?: T;
+              menuLink?: T;
               thirdLevel?:
                 | T
                 | {
-                    buttonThird?: T;
-                    thirdLevelLinks?: T;
+                    element?: T;
+                    button?: T;
+                    iconClass?: T;
+                    menuLink?: T;
                     id?: T;
                   };
               id?: T;
@@ -677,15 +1042,49 @@ export interface WCAGNavSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "WCAGFooterNav_select".
+ * via the `definition` "ReqFooterNav_select".
  */
-export interface WCAGFooterNavSelect<T extends boolean = true> {
+export interface ReqFooterNavSelect<T extends boolean = true> {
   navigationLinks?:
     | T
     | {
+        iconClass?: T;
         menuLink?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "menuTitles_select".
+ */
+export interface MenuTitlesSelect<T extends boolean = true> {
+  list?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "notFound_select".
+ */
+export interface NotFoundSelect<T extends boolean = true> {
+  title?: T;
+  content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ReqFrontPage_select".
+ */
+export interface ReqFrontPageSelect<T extends boolean = true> {
+  title?: T;
+  content?: T;
+  metaDescription?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

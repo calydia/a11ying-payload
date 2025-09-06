@@ -1,8 +1,8 @@
 import { GlobalConfig } from 'payload'
 
-export const mainNavigation: GlobalConfig = {
-  slug: 'mainNav',
-  label: 'Main Navigation',
+export const ReqNavigation: GlobalConfig = {
+  slug: 'ReqNav',
+  label: 'Req Navigation',
   access: {
     read: () => true,
     update: ({ req }) => !!req.user,
@@ -26,7 +26,6 @@ export const mainNavigation: GlobalConfig = {
           name: 'mainPath',
           label: 'Main path',
           type: 'text',
-          required: true,
           localized: true,
         },
         {
@@ -44,7 +43,7 @@ export const mainNavigation: GlobalConfig = {
           name: 'menuLink',
           label: 'Menu link',
           type: 'relationship',
-          relationTo: 'pages',
+          relationTo: ['reqPages', 'principles', 'guidelines', 'criteria'],
           required: false,
         },
         {
@@ -76,7 +75,7 @@ export const mainNavigation: GlobalConfig = {
               name: 'menuLink',
               label: 'Menu link',
               type: 'relationship',
-              relationTo: 'pages',
+              relationTo: ['reqPages', 'principles', 'guidelines', 'criteria'],
               required: false,
             },
             {
@@ -108,7 +107,7 @@ export const mainNavigation: GlobalConfig = {
                   name: 'menuLink',
                   label: 'Menu link',
                   type: 'relationship',
-                  relationTo: 'pages',
+                  relationTo: ['reqPages', 'principles', 'guidelines', 'criteria'],
                   required: false,
                 },
               ],

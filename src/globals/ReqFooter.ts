@@ -1,8 +1,8 @@
 import { GlobalConfig } from 'payload'
 
-export const footerNavigation: GlobalConfig = {
-  slug: 'footerNav',
-  label: 'Footer Navigation',
+export const ReqFooter: GlobalConfig = {
+  slug: 'ReqFooterNav',
+  label: 'Req Footer Navigation',
   access: {
     read: () => true,
     update: ({ req }) => !!req.user,
@@ -22,7 +22,7 @@ export const footerNavigation: GlobalConfig = {
           name: 'menuLink',
           label: 'Menu Link',
           type: 'relationship',
-          relationTo: 'pages',
+          relationTo: 'reqPages',
           required: false,
         },
       ],

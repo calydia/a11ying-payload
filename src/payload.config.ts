@@ -6,19 +6,29 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 
+// Collections
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
+import { DemoPages } from './collections/DemoPages'
+import { BlogCards } from './collections/BlogCards'
 import { GlossaryItems } from './collections/GlossaryItems'
 import { WCAGPrinciples } from './collections/WCAGPrinciples'
 import { WCAGGuidelines } from './collections/WCAGGuidelines'
 import { WCAGCriteria } from './collections/WCAGCriteria'
+import { ReqPages } from './collections/ReqPages'
 
+// Globals
 import { mainNavigation } from './globals/mainNavigation'
-import { WCAGNavigation } from './globals/WCAGNavigation'
-import { WCAGFooter } from './globals/WCAGFooter'
+import { ReqNavigation } from './globals/ReqNavigation'
+import { ReqFooter } from './globals/ReqFooter'
 import { footerNavigation } from './globals/footerNavigation'
+import { menuTitles } from './globals/menuTitles'
+import { notFound } from './globals/notFound'
+import { frontPage } from './globals/frontPage'
+import { ReqFrontPage } from './globals/ReqFrontPage'
 
+// Blocks and inline blocks
 import { Abbreviation } from './blocks/abbreviation'
 import { Language } from './blocks/language'
 import { CodeBlock } from './blocks/codeBlock'
@@ -35,8 +45,28 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Pages, GlossaryItems, WCAGPrinciples, WCAGGuidelines, WCAGCriteria, Users, Media],
-  globals: [mainNavigation, footerNavigation, WCAGNavigation, WCAGFooter],
+  collections: [
+    Pages,
+    DemoPages,
+    GlossaryItems,
+    ReqPages,
+    WCAGPrinciples,
+    WCAGGuidelines,
+    WCAGCriteria,
+    BlogCards,
+    Users,
+    Media,
+  ],
+  globals: [
+    mainNavigation,
+    footerNavigation,
+    frontPage,
+    ReqNavigation,
+    ReqFooter,
+    menuTitles,
+    notFound,
+    ReqFrontPage,
+  ],
   editor: lexicalEditor({
     features: ({ defaultFeatures, rootFeatures }) => [
       ...defaultFeatures,

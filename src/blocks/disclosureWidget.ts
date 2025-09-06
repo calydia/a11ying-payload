@@ -11,12 +11,10 @@ export const DisclosureWidget: Block = {
     {
       type: 'text',
       name: 'heading',
-      label: 'Disclosure Widget Heading',
     },
     {
       type: 'richText',
       name: 'content',
-      label: 'Disclosure Widget Content',
       editor: lexicalEditor({}),
     },
   ],

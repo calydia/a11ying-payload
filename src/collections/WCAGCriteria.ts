@@ -2,9 +2,18 @@ import type { CollectionConfig } from 'payload'
 
 export const WCAGCriteria: CollectionConfig = {
   slug: 'criteria',
+  access: {
+    read: () => true,
+    create: ({ req }) => !!req.user,
+    update: ({ req }) => !!req.user,
+    delete: ({ req }) => !!req.user,
+  },
   labels: {
     singular: 'WCAG Criterion',
     plural: 'WCAG Criteria',
+  },
+  admin: {
+    useAsTitle: 'title',
   },
   fields: [
     {
@@ -13,14 +22,20 @@ export const WCAGCriteria: CollectionConfig = {
       localized: true,
     },
     {
-      name: 'slug',
+      name: 'criterionNumber',
       type: 'text',
-      localized: true,
     },
     {
-      name: 'pageUrl',
+      name: 'criterionLevel',
       type: 'text',
-      localized: true,
+    },
+    {
+      name: 'wcagVersion',
+      type: 'text',
+    },
+    {
+      name: 'criterionSort',
+      type: 'number',
     },
     {
       name: 'Principle',
@@ -37,6 +52,16 @@ export const WCAGCriteria: CollectionConfig = {
       localized: true,
     },
     {
+      name: 'slug',
+      type: 'text',
+      localized: true,
+    },
+    {
+      name: 'pageUrl',
+      type: 'text',
+      localized: true,
+    },
+    {
       name: 'content',
       type: 'richText',
       localized: true,
@@ -48,6 +73,11 @@ export const WCAGCriteria: CollectionConfig = {
       minLength: 60,
       maxLength: 160,
       required: true,
+    },
+    {
+      name: 'cardContent',
+      type: 'textarea',
+      localized: true,
     },
   ],
 }

@@ -2,6 +2,12 @@ import type { CollectionConfig } from 'payload'
 
 export const GlossaryItems: CollectionConfig = {
   slug: 'glossaryItems',
+  access: {
+    read: () => true,
+    create: ({ req }) => !!req.user,
+    update: ({ req }) => !!req.user,
+    delete: ({ req }) => !!req.user,
+  },
   fields: [
     {
       name: 'term',

@@ -15,10 +15,8 @@ export const CodeBlock: Block = {
       defaultValue: false,
     },
     {
-      type: 'richText',
+      type: 'text',
       name: 'HTMLContent',
-      label: 'HTML Content',
-      editor: lexicalEditor({}),
     },
   ],
 }

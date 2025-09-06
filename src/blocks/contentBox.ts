@@ -11,7 +11,6 @@ export const ContentBox: Block = {
     {
       type: 'text',
       name: 'heading',
-      label: 'Content Box Heading',
     },
     {
       type: 'select',
@@ -20,22 +19,21 @@ export const ContentBox: Block = {
       options: [
         {
           label: 'Border: gradient',
-          value: 'gradient',
+          value: 'box-gradient',
         },
         {
           label: 'Border: solid',
-          value: 'bordered',
+          value: 'box-bordered',
         },
         {
           label: 'Heading underline',
-          value: 'underlined',
+          value: 'box-underlined',
         },
       ],
     },
     {
       type: 'richText',
       name: 'boxContent',
-      label: 'Content Box Content',
       editor: lexicalEditor({}),
     },
   ],

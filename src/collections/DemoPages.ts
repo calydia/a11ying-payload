@@ -1,16 +1,12 @@
 import type { CollectionConfig } from 'payload'
 
-export const WCAGGuidelines: CollectionConfig = {
-  slug: 'guidelines',
+export const DemoPages: CollectionConfig = {
+  slug: 'demopages',
   access: {
     read: () => true,
     create: ({ req }) => !!req.user,
     update: ({ req }) => !!req.user,
     delete: ({ req }) => !!req.user,
-  },
-  labels: {
-    singular: 'WCAG Guideline',
-    plural: 'WCAG Guidelines',
   },
   admin: {
     useAsTitle: 'title',
@@ -19,17 +15,6 @@ export const WCAGGuidelines: CollectionConfig = {
     {
       name: 'title',
       type: 'text',
-      localized: true,
-    },
-    {
-      name: 'guidelineNumber',
-      type: 'text',
-    },
-    {
-      name: 'Principle',
-      type: 'relationship',
-      relationTo: 'principles',
-      hasMany: false,
       localized: true,
     },
     {

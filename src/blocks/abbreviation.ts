@@ -17,7 +17,7 @@ export const Abbreviation: Block = {
       name: 'definition',
       label: 'Definition',
       type: 'text',
-      required: true,
+      required: false,
     },
   ],
 }

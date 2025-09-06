@@ -2,15 +2,31 @@ import type { CollectionConfig } from 'payload'
 
 export const WCAGPrinciples: CollectionConfig = {
   slug: 'principles',
+  access: {
+    read: () => true,
+    create: ({ req }) => !!req.user,
+    update: ({ req }) => !!req.user,
+    delete: ({ req }) => !!req.user,
+  },
   labels: {
     singular: 'WCAG Principle',
     plural: 'WCAG Principles',
+  },
+  admin: {
+    useAsTitle: 'title',
   },
   fields: [
     {
       name: 'title',
       type: 'text',
       localized: true,
+      admin: {
+        useAsTitle: true,
+      },
+    },
+    {
+      name: 'principleNumber',
+      type: 'text',
     },
     {
       name: 'slug',
