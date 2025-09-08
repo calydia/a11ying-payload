@@ -708,19 +708,44 @@ export interface MainNav {
     mainPath: string;
     button?: string | null;
     iconClass?: string | null;
-    menuLink?: (number | null) | Page;
+    menuLink?:
+      | ({
+          relationTo: 'pages';
+          value: number | Page;
+        } | null)
+      | ({
+          relationTo: 'demopages';
+          value: number | Demopage;
+        } | null);
     secondLevel?:
       | {
           element?: ('button' | 'link') | null;
           button?: string | null;
+          menuPath?: string | null;
           iconClass?: string | null;
-          menuLink?: (number | null) | Page;
+          menuLink?:
+            | ({
+                relationTo: 'pages';
+                value: number | Page;
+              } | null)
+            | ({
+                relationTo: 'demopages';
+                value: number | Demopage;
+              } | null);
           thirdLevel?:
             | {
                 element?: ('button' | 'link') | null;
                 button?: string | null;
                 iconClass?: string | null;
-                menuLink?: (number | null) | Page;
+                menuLink?:
+                  | ({
+                      relationTo: 'pages';
+                      value: number | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'demopages';
+                      value: number | Demopage;
+                    } | null);
                 id?: string | null;
               }[]
             | null;
@@ -956,6 +981,7 @@ export interface MainNavSelect<T extends boolean = true> {
           | {
               element?: T;
               button?: T;
+              menuPath?: T;
               iconClass?: T;
               menuLink?: T;
               thirdLevel?:

@@ -1,5 +1,4 @@
 import { Block } from 'payload'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
 
 export const CodeBlock: Block = {
   slug: 'CodeBlock',

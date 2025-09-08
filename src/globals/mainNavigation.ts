@@ -44,7 +44,7 @@ export const mainNavigation: GlobalConfig = {
           name: 'menuLink',
           label: 'Menu link',
           type: 'relationship',
-          relationTo: 'pages',
+          relationTo: ['pages', 'demopages'],
           required: false,
         },
         {
@@ -68,6 +68,12 @@ export const mainNavigation: GlobalConfig = {
               localized: true,
             },
             {
+              name: 'menuPath',
+              label: 'Menu path',
+              type: 'text',
+              localized: true,
+            },
+            {
               name: 'iconClass',
               label: 'CSS class for the icon',
               type: 'text',
@@ -76,7 +82,7 @@ export const mainNavigation: GlobalConfig = {
               name: 'menuLink',
               label: 'Menu link',
               type: 'relationship',
-              relationTo: 'pages',
+              relationTo: ['pages', 'demopages'],
               required: false,
             },
             {
@@ -108,7 +114,7 @@ export const mainNavigation: GlobalConfig = {
                   name: 'menuLink',
                   label: 'Menu link',
                   type: 'relationship',
-                  relationTo: 'pages',
+                  relationTo: ['pages', 'demopages'],
                   required: false,
                 },
               ],

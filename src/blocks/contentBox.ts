@@ -1,5 +1,11 @@
 import { Block } from 'payload'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { BlocksFeature, FixedToolbarFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
+
+// Blocks and inline blocks
+import { Abbreviation } from './abbreviation'
+import { Language } from './language'
+import { CodeBlock } from './codeBlock'
+import { DisclosureWidget } from './disclosureWidget'
 
 export const ContentBox: Block = {
   slug: 'ContentBox',
@@ -34,7 +40,18 @@ export const ContentBox: Block = {
     {
       type: 'richText',
       name: 'boxContent',
-      editor: lexicalEditor({}),
+      editor: lexicalEditor({
+        features: ({ defaultFeatures, rootFeatures }) => [
+          ...defaultFeatures,
+          FixedToolbarFeature({
+            applyToFocusedEditor: true,
+          }),
+          BlocksFeature({
+            blocks: [CodeBlock, DisclosureWidget],
+            inlineBlocks: [Abbreviation, Language],
+          }),
+        ],
+      }),
     },
   ],
 }
