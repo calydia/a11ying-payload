@@ -51,5 +51,13 @@ export const WCAGPrinciples: CollectionConfig = {
       maxLength: 160,
       required: true,
     },
+    {
+      name: 'searchContent',
+      type: 'textarea',
+      admin: {
+        readOnly: true,
+        hidden: true,
+      },
+    },
   ],
 }

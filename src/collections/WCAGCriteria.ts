@@ -79,5 +79,13 @@ export const WCAGCriteria: CollectionConfig = {
       type: 'textarea',
       localized: true,
     },
+    {
+      name: 'searchContent',
+      type: 'textarea',
+      admin: {
+        readOnly: true,
+        hidden: true,
+      },
+    },
   ],
 }

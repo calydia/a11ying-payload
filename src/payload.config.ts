@@ -5,6 +5,7 @@ import { BlocksFeature, FixedToolbarFeature, lexicalEditor } from '@payloadcms/r
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
+import { searchPlugin } from '@payloadcms/plugin-search'
 
 // Collections
 import { Users } from './collections/Users'
@@ -38,7 +39,26 @@ import { DisclosureWidget } from './blocks/disclosureWidget'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+// Place the utility function here
+const flattenLexicalRichText = (nodes) => {
+  let plainText = ''
+  if (!nodes || nodes.length === 0) {
+    return plainText
+  }
+
+  nodes.forEach((node) => {
+    if (node.children) {
+      plainText += flattenLexicalRichText(node.children)
+    } else if (node.text) {
+      plainText += node.text + ' ' // Add a space for better readability
+    }
+  })
+
+  return plainText
+}
+
 export default buildConfig({
+  cors: [process.env.FRONT_URL],
   admin: {
     user: Users.slug,
     importMap: {
@@ -90,7 +110,44 @@ export default buildConfig({
   }),
   plugins: [
     payloadCloudPlugin(),
-    // storage-adapter-placeholder
+    searchPlugin({
+      collections: ['pages', 'demopages', 'reqPages', 'principles', 'guidelines', 'criteria'],
+      searchOverrides: {
+        fields: ({ defaultFields }) => [
+          ...defaultFields,
+          {
+            name: 'searchContent',
+            type: 'text',
+            localized: true,
+          },
+          {
+            name: 'searchLead',
+            type: 'text',
+            localized: true,
+          },
+          {
+            name: 'searchPageUrl',
+            type: 'text',
+            localized: true,
+          },
+          {
+            name: 'searchDescription',
+            type: 'textarea',
+            localized: true,
+          },
+        ],
+      },
+      beforeSync: ({ originalDoc, searchDoc }) => ({
+        ...searchDoc,
+
+        searchContent: originalDoc.content
+          ? flattenLexicalRichText(originalDoc.content.root.children)
+          : '',
+        searchLead: originalDoc.lead ? flattenLexicalRichText(originalDoc.lead.root.children) : '',
+        searchPageUrl: originalDoc.pageUrl,
+        searchDescription: originalDoc.metaDescription,
+      }),
+    }),
   ],
   localization: {
     locales: [

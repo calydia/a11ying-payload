@@ -45,5 +45,21 @@ export const ReqPages: CollectionConfig = {
       maxLength: 160,
       required: true,
     },
+    {
+      name: 'searchLead',
+      type: 'textarea',
+      admin: {
+        readOnly: true,
+        hidden: true,
+      },
+    },
+    {
+      name: 'searchContent',
+      type: 'textarea',
+      admin: {
+        readOnly: true,
+        hidden: true,
+      },
+    },
   ],
 }

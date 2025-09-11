@@ -77,6 +77,7 @@ export interface Config {
     blogCards: BlogCard;
     users: User;
     media: Media;
+    search: Search;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -93,6 +94,7 @@ export interface Config {
     blogCards: BlogCardsSelect<false> | BlogCardsSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    search: SearchSelect<false> | SearchSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -187,6 +189,8 @@ export interface Page {
     [k: string]: unknown;
   } | null;
   metaDescription: string;
+  searchLead?: string | null;
+  searchContent?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -270,6 +274,8 @@ export interface ReqPage {
     [k: string]: unknown;
   } | null;
   metaDescription: string;
+  searchLead?: string | null;
+  searchContent?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -299,6 +305,7 @@ export interface Principle {
     [k: string]: unknown;
   } | null;
   metaDescription: string;
+  searchContent?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -329,6 +336,7 @@ export interface Guideline {
     [k: string]: unknown;
   } | null;
   metaDescription: string;
+  searchContent?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -364,6 +372,7 @@ export interface Criterion {
   } | null;
   metaDescription: string;
   cardContent?: string | null;
+  searchContent?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -424,6 +433,48 @@ export interface User {
   password?: string | null;
 }
 /**
+ * This is a collection of automatically created search results. These results are used by the global site search and will be updated automatically as documents in the CMS are created or updated.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "search".
+ */
+export interface Search {
+  id: number;
+  title?: string | null;
+  priority?: number | null;
+  doc:
+    | {
+        relationTo: 'pages';
+        value: number | Page;
+      }
+    | {
+        relationTo: 'demopages';
+        value: number | Demopage;
+      }
+    | {
+        relationTo: 'reqPages';
+        value: number | ReqPage;
+      }
+    | {
+        relationTo: 'principles';
+        value: number | Principle;
+      }
+    | {
+        relationTo: 'guidelines';
+        value: number | Guideline;
+      }
+    | {
+        relationTo: 'criteria';
+        value: number | Criterion;
+      };
+  searchContent?: string | null;
+  searchLead?: string | null;
+  searchPageUrl?: string | null;
+  searchDescription?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
@@ -469,6 +520,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'search';
+        value: number | Search;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -523,6 +578,8 @@ export interface PagesSelect<T extends boolean = true> {
   lead?: T;
   content?: T;
   metaDescription?: T;
+  searchLead?: T;
+  searchContent?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -561,6 +618,8 @@ export interface ReqPagesSelect<T extends boolean = true> {
   lead?: T;
   content?: T;
   metaDescription?: T;
+  searchLead?: T;
+  searchContent?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -575,6 +634,7 @@ export interface PrinciplesSelect<T extends boolean = true> {
   pageUrl?: T;
   content?: T;
   metaDescription?: T;
+  searchContent?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -590,6 +650,7 @@ export interface GuidelinesSelect<T extends boolean = true> {
   pageUrl?: T;
   content?: T;
   metaDescription?: T;
+  searchContent?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -610,6 +671,7 @@ export interface CriteriaSelect<T extends boolean = true> {
   content?: T;
   metaDescription?: T;
   cardContent?: T;
+  searchContent?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -664,6 +726,21 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "search_select".
+ */
+export interface SearchSelect<T extends boolean = true> {
+  title?: T;
+  priority?: T;
+  doc?: T;
+  searchContent?: T;
+  searchLead?: T;
+  searchPageUrl?: T;
+  searchDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
