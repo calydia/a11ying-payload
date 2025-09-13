@@ -67,6 +67,12 @@ export const ReqNavigation: GlobalConfig = {
               localized: true,
             },
             {
+              name: 'menuPath',
+              label: 'Menu path',
+              type: 'text',
+              localized: true,
+            },
+            {
               name: 'iconClass',
               label: 'CSS class for the icon',
               type: 'text',

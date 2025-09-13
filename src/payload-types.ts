@@ -906,6 +906,7 @@ export interface ReqNav {
       | {
           element?: ('button' | 'link') | null;
           button?: string | null;
+          menuPath?: string | null;
           iconClass?: string | null;
           menuLink?:
             | ({
@@ -1124,6 +1125,7 @@ export interface ReqNavSelect<T extends boolean = true> {
           | {
               element?: T;
               button?: T;
+              menuPath?: T;
               iconClass?: T;
               menuLink?: T;
               thirdLevel?:
