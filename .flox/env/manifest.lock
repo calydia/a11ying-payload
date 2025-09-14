@@ -31,19 +31,11 @@
         "aarch64-linux",
         "x86_64-darwin",
         "x86_64-linux"
-      ],
-      "allow": {
-        "licenses": []
-      },
-      "semver": {}
+      ]
     },
     "services": {
       "postgres": {
-        "command": "postgres -D ${PGDATA} -c unix_socket_directories=${PGHOST} -c listen_addresses=${PGHOSTADDR} -p ${PGPORT}",
-        "vars": null,
-        "is-daemon": null,
-        "shutdown": null,
-        "systems": null
+        "command": "postgres -D ${PGDATA} -c unix_socket_directories=${PGHOST} -c listen_addresses=${PGHOSTADDR} -p ${PGPORT}"
       }
     }
   },
@@ -51,27 +43,28 @@
     {
       "attr_path": "gum",
       "broken": false,
-      "derivation": "/nix/store/pg3cdd51qdyvz1y4f40sppnzi48w6kql-gum-0.16.2.drv",
+      "derivation": "/nix/store/i7da40pyfvk25xwk2xkg7rlzv3zqf4s3-gum-0.17.0.drv",
       "description": "Tasty Bubble Gum for your shell",
       "install_id": "gum",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "gum-0.16.2",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "gum-0.17.0",
       "pname": "gum",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T00:32:54.397104Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:06:12.583231Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "0.16.2",
+      "version": "0.17.0",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/s9w5fifwbcl92x3r55r9lbiwmlyrlfig-gum-0.16.2"
+        "out": "/nix/store/6acx1nn0f2i5v6dkdzaap2hdngkp1lpz-gum-0.17.0"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -80,27 +73,28 @@
     {
       "attr_path": "gum",
       "broken": false,
-      "derivation": "/nix/store/h7k81r0f4j065q10xnl4h3dib8vyw8qj-gum-0.16.2.drv",
+      "derivation": "/nix/store/vn184rxp6dqbd1lacq122him8nif1ljj-gum-0.17.0.drv",
       "description": "Tasty Bubble Gum for your shell",
       "install_id": "gum",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "gum-0.16.2",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "gum-0.17.0",
       "pname": "gum",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T00:56:58.042968Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:40:53.928081Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "0.16.2",
+      "version": "0.17.0",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/7z4r5akxz40nfji1jz4bdk99k1biwdkc-gum-0.16.2"
+        "out": "/nix/store/caisq1py34nrn7q3lx4sswkm0zlpdr4n-gum-0.17.0"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -109,27 +103,28 @@
     {
       "attr_path": "gum",
       "broken": false,
-      "derivation": "/nix/store/yv03ry4f80wp5cgxdb1d13l67n89lrv0-gum-0.16.2.drv",
+      "derivation": "/nix/store/xzwzl56m1rwcb5pbmq85cvhyhfd1angc-gum-0.17.0.drv",
       "description": "Tasty Bubble Gum for your shell",
       "install_id": "gum",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "gum-0.16.2",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "gum-0.17.0",
       "pname": "gum",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T01:20:04.316356Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:13:16.658123Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "0.16.2",
+      "version": "0.17.0",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/r6q70l6jqmgmmv8br9dpvh23c4lqkapq-gum-0.16.2"
+        "out": "/nix/store/w467h914divp2k8qyk5x14hci2jm7ww6-gum-0.17.0"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -138,27 +133,28 @@
     {
       "attr_path": "gum",
       "broken": false,
-      "derivation": "/nix/store/1rl9xkxjazii9zr7ci73sjk20dp4v2yp-gum-0.16.2.drv",
+      "derivation": "/nix/store/3l47qcfk0x158cx0f3ql2pggnxgd6v9p-gum-0.17.0.drv",
       "description": "Tasty Bubble Gum for your shell",
       "install_id": "gum",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "gum-0.16.2",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "gum-0.17.0",
       "pname": "gum",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T01:47:04.930182Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:49:37.213969Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "0.16.2",
+      "version": "0.17.0",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/ghqbmfsmdhccms652yx3n0mkj86jlz8r-gum-0.16.2"
+        "out": "/nix/store/jbjrj4hbf2bgdvr6vl4dalwn31s669p4-gum-0.17.0"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -167,29 +163,30 @@
     {
       "attr_path": "nodejs_22",
       "broken": false,
-      "derivation": "/nix/store/mcpi6hknkb9dz7ipp7nzh1ln1a8ak702-nodejs-22.17.0.drv",
+      "derivation": "/nix/store/05pp2jwx6ixg5hp3nnpi9s2md52iw4hl-nodejs-22.19.0.drv",
       "description": "Event-driven I/O framework for the V8 JavaScript engine",
       "install_id": "nodejs",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "nodejs-22.17.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "nodejs-22.19.0",
       "pname": "nodejs_22",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T00:32:56.826752Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:06:34.936626Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "22.17.0",
+      "version": "22.19.0",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "dev": "/nix/store/f8p8cf7impbgzqim9nbqik6z9xj5lyc3-nodejs-22.17.0-dev",
-        "libv8": "/nix/store/6fy7a1dk6z2xz57v3axlzw7lrscikk2f-nodejs-22.17.0-libv8",
-        "out": "/nix/store/s7dd5qi3fzjj8q5mmygi8pasp91n727c-nodejs-22.17.0"
+        "dev": "/nix/store/2haz1qvxgshwfnf34ds3ldhrw1fr19xl-nodejs-22.19.0-dev",
+        "libv8": "/nix/store/9c8wh022ri1w080xykya778gkj9y23q0-nodejs-22.19.0-libv8",
+        "out": "/nix/store/3scj3c1qxh5iclf8jy5hbl9pki40y77n-nodejs-22.19.0"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -198,29 +195,30 @@
     {
       "attr_path": "nodejs_22",
       "broken": false,
-      "derivation": "/nix/store/hp61l0ws5s5xipwaa0y98dwi394rsas6-nodejs-22.17.0.drv",
+      "derivation": "/nix/store/h8ngmzg6hh3fcal7s8jrx9giq39nmiym-nodejs-22.19.0.drv",
       "description": "Event-driven I/O framework for the V8 JavaScript engine",
       "install_id": "nodejs",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "nodejs-22.17.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "nodejs-22.19.0",
       "pname": "nodejs_22",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T00:57:07.017854Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:41:31.489992Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "22.17.0",
+      "version": "22.19.0",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "dev": "/nix/store/vgjb162lwvdqw6vf1jlam9iaxr4g4njm-nodejs-22.17.0-dev",
-        "libv8": "/nix/store/5wb5rg5d9mqahhkbaxa4igrdgq7bbqra-nodejs-22.17.0-libv8",
-        "out": "/nix/store/368l5fmrl9yc2h8ngbw3b6hhp7fc8chh-nodejs-22.17.0"
+        "dev": "/nix/store/i7d7f38736nndmiawzmrx8ncyg12bzzh-nodejs-22.19.0-dev",
+        "libv8": "/nix/store/vxims6ls362vhdzlzjxpwbw8vj8p5d0s-nodejs-22.19.0-libv8",
+        "out": "/nix/store/13ar46sdd3qls1q4w35qv7v9a6wpj63c-nodejs-22.19.0"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -229,29 +227,30 @@
     {
       "attr_path": "nodejs_22",
       "broken": false,
-      "derivation": "/nix/store/dv9i7vz3bqp38vd4alipvw57nbnh159f-nodejs-22.17.0.drv",
+      "derivation": "/nix/store/749rj64sb8ymn392frgwiq1bn1w1l303-nodejs-22.19.0.drv",
       "description": "Event-driven I/O framework for the V8 JavaScript engine",
       "install_id": "nodejs",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "nodejs-22.17.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "nodejs-22.19.0",
       "pname": "nodejs_22",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T01:20:06.806254Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:13:38.343233Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "22.17.0",
+      "version": "22.19.0",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "dev": "/nix/store/a09q6g0l907dvib30wxp2zhd1yx8p4w9-nodejs-22.17.0-dev",
-        "libv8": "/nix/store/1psqihyqxkm0pa5n6b1jyy7fn7s5d3w5-nodejs-22.17.0-libv8",
-        "out": "/nix/store/rn17ypna061gf9l94m8dcq4n6jwi2qmx-nodejs-22.17.0"
+        "dev": "/nix/store/z08yd37bvr4w54qmkb65d9wzyv27xgrd-nodejs-22.19.0-dev",
+        "libv8": "/nix/store/vpz64ylnvx5hm8mx8vx35inhpzbnkljq-nodejs-22.19.0-libv8",
+        "out": "/nix/store/xgqkmyswq6s9jbdhvx6x8ix2jkj0jbip-nodejs-22.19.0"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -260,29 +259,30 @@
     {
       "attr_path": "nodejs_22",
       "broken": false,
-      "derivation": "/nix/store/1j5phnsrk0dylzigngdwc143a20y9ify-nodejs-22.17.0.drv",
+      "derivation": "/nix/store/2mqg4y2qz8kyk9xy96z1b80h3km40nch-nodejs-22.19.0.drv",
       "description": "Event-driven I/O framework for the V8 JavaScript engine",
       "install_id": "nodejs",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "nodejs-22.17.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "nodejs-22.19.0",
       "pname": "nodejs_22",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T01:47:15.414595Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:50:16.885147Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "22.17.0",
+      "version": "22.19.0",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "dev": "/nix/store/56m9qb3lvy446hirs940cgmgjk54yssl-nodejs-22.17.0-dev",
-        "libv8": "/nix/store/40hasi9aw7r9qcacppgf712qzi8aa3br-nodejs-22.17.0-libv8",
-        "out": "/nix/store/whnr2rydma74q97zs56ic601ixs88njg-nodejs-22.17.0"
+        "dev": "/nix/store/a99hiwhamgzds70gxkfnb4cm8i926356-nodejs-22.19.0-dev",
+        "libv8": "/nix/store/z6bm3d1gzn39p4yxyga4q3b1spdsggy1-nodejs-22.19.0-libv8",
+        "out": "/nix/store/r4557ald6zn4dzmvgh8na9vwnwzgrjgc-nodejs-22.19.0"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -291,27 +291,28 @@
     {
       "attr_path": "pnpm",
       "broken": false,
-      "derivation": "/nix/store/91hb9a93c1649bg77lj3srad5qbm5bpf-pnpm-10.13.1.drv",
+      "derivation": "/nix/store/dhhnr771ykpx3r9lasv6smhafg306nrx-pnpm-10.15.0.drv",
       "description": "Fast, disk space efficient package manager for JavaScript",
       "install_id": "pnpm",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "pnpm-10.13.1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "pnpm-10.15.0",
       "pname": "pnpm",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T00:33:02.146933Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:06:49.716612Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "10.13.1",
+      "version": "10.15.0",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/isv167vwnbhbpa7pkibshpd31w9d1ah1-pnpm-10.13.1"
+        "out": "/nix/store/x39jf2kvn9j8x3nfrpdgq3mwv10f2r0i-pnpm-10.15.0"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -320,27 +321,28 @@
     {
       "attr_path": "pnpm",
       "broken": false,
-      "derivation": "/nix/store/z92ihjsi0wvlljdb9p8rf2bd00hk8x2v-pnpm-10.13.1.drv",
+      "derivation": "/nix/store/xzclxyxsy2d3w2aqadsh7gd5xw06cph9-pnpm-10.15.0.drv",
       "description": "Fast, disk space efficient package manager for JavaScript",
       "install_id": "pnpm",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "pnpm-10.13.1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "pnpm-10.15.0",
       "pname": "pnpm",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T00:57:16.994367Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:41:52.411385Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "10.13.1",
+      "version": "10.15.0",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/yi7853kv4b7jz32k9hw329dh4010qpgl-pnpm-10.13.1"
+        "out": "/nix/store/jxhrhg42m7cxiay41ygljp3cfisk3i7v-pnpm-10.15.0"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -349,27 +351,28 @@
     {
       "attr_path": "pnpm",
       "broken": false,
-      "derivation": "/nix/store/3mlxwpk1lrqx6vphbgs1rv5zcagaznq9-pnpm-10.13.1.drv",
+      "derivation": "/nix/store/rdpw46f0qbiflnsrydghih444lsc1q7s-pnpm-10.15.0.drv",
       "description": "Fast, disk space efficient package manager for JavaScript",
       "install_id": "pnpm",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "pnpm-10.13.1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "pnpm-10.15.0",
       "pname": "pnpm",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T01:20:12.194008Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:13:52.325088Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "10.13.1",
+      "version": "10.15.0",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/zk5x54d2fhw5g2khx63swxmihji3vh59-pnpm-10.13.1"
+        "out": "/nix/store/xrhxpknhw0ifp8kspp44gdlyxpv378aj-pnpm-10.15.0"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -378,27 +381,28 @@
     {
       "attr_path": "pnpm",
       "broken": false,
-      "derivation": "/nix/store/2dgzi46g2fai7ri17rvrif7ciwsnqizs-pnpm-10.13.1.drv",
+      "derivation": "/nix/store/959xc82avaf819klq8wd820zymrqmiq6-pnpm-10.15.0.drv",
       "description": "Fast, disk space efficient package manager for JavaScript",
       "install_id": "pnpm",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "pnpm-10.13.1",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "pnpm-10.15.0",
       "pname": "pnpm",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T01:47:26.291206Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:50:38.330081Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "10.13.1",
+      "version": "10.15.0",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/98hbwcmr35si6nbkylfncnah529ahpwj-pnpm-10.13.1"
+        "out": "/nix/store/qrcxicl2rsz00b24kipgiwsz940dr325-pnpm-10.15.0"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -407,36 +411,37 @@
     {
       "attr_path": "postgresql_17",
       "broken": false,
-      "derivation": "/nix/store/4asmhilm73apx045pzy2n8lfgd5fbrxr-postgresql-17.5.drv",
+      "derivation": "/nix/store/kp2qxbdsrh5jr8ll22mm0dkfw3p3a5jx-postgresql-17.6.drv",
       "description": "Powerful, open source object-relational database system",
       "install_id": "postgresql",
       "license": "PostgreSQL",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "postgresql-17.5",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "postgresql-17.6",
       "pname": "postgresql_17",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T00:33:02.559790Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:06:50.781396Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "17.5",
+      "version": "17.6",
       "outputs_to_install": [
         "man",
         "out"
       ],
       "outputs": {
-        "dev": "/nix/store/rid24asr9anzmzvj8vzvvh6vhyzrv1g0-postgresql-17.5-dev",
-        "doc": "/nix/store/13n7szqbq83d5s7i17xd1y6vijnlw8si-postgresql-17.5-doc",
-        "jit": "/nix/store/pwi2jpd8kzpddzcj6rnhas1rkd17j05l-postgresql-17.5-jit",
-        "lib": "/nix/store/z2ixx0168lngnhdgcxaw9w6wra0ibnnx-postgresql-17.5-lib",
-        "man": "/nix/store/g3gynlyaxxgwiq8fm5lcqs7cp0fr25zl-postgresql-17.5-man",
-        "out": "/nix/store/dfmi5df0i45v2cibv90zbga22l5pmmnw-postgresql-17.5",
-        "plperl": "/nix/store/8qv982x7a177gwn2d0s2xnss9gayhj51-postgresql-17.5-plperl",
-        "plpython3": "/nix/store/fqkh3qj0x8by1aczhg5sj2wla0rmg3wr-postgresql-17.5-plpython3",
-        "pltcl": "/nix/store/bvfy276k5xz806vglghvbl7s8c6wl5z4-postgresql-17.5-pltcl"
+        "dev": "/nix/store/kdsy2qhdaj0drwv7bjlqrq8iwg7am4pm-postgresql-17.6-dev",
+        "doc": "/nix/store/p598qxn9a6czkawqica9aglgpi7qk602-postgresql-17.6-doc",
+        "jit": "/nix/store/hhwgaaprw190fd4lan9c1jcayni005mc-postgresql-17.6-jit",
+        "lib": "/nix/store/8jvg8lb3r1r4g7fchvn71kigclgj93ss-postgresql-17.6-lib",
+        "man": "/nix/store/s8fy60163fvin1rypqp49xff5vfq8pc1-postgresql-17.6-man",
+        "out": "/nix/store/x8316kdj4hvr90zww4fzrh6iqbp2fwfv-postgresql-17.6",
+        "plperl": "/nix/store/7i8fin94kv6bsil9yfws868kfn8dsfk5-postgresql-17.6-plperl",
+        "plpython3": "/nix/store/k52nrq2chmf9bcsgdl5xdxigi43cb641-postgresql-17.6-plpython3",
+        "pltcl": "/nix/store/95s1q5ybh6g7rff0sb77963rxmzl07hb-postgresql-17.6-pltcl"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -445,37 +450,38 @@
     {
       "attr_path": "postgresql_17",
       "broken": false,
-      "derivation": "/nix/store/yngybp517w740vw87kjzcilnidv95n3v-postgresql-17.5.drv",
+      "derivation": "/nix/store/1kzzglbgy359nrwprmvb3dlb5dn9d75n-postgresql-17.6.drv",
       "description": "Powerful, open source object-relational database system",
       "install_id": "postgresql",
       "license": "PostgreSQL",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "postgresql-17.5",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "postgresql-17.6",
       "pname": "postgresql_17",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T00:57:17.704631Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:41:53.866436Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "17.5",
+      "version": "17.6",
       "outputs_to_install": [
         "man",
         "out"
       ],
       "outputs": {
-        "debug": "/nix/store/s84wvrgpqql4iw9gygq5jzs93c7bvv90-postgresql-17.5-debug",
-        "dev": "/nix/store/l7rryvxw8z6im8dnsmskpry4ydbnk6rq-postgresql-17.5-dev",
-        "doc": "/nix/store/5g0krnrsbwmpvwz50jk7if7az8q9yxvp-postgresql-17.5-doc",
-        "jit": "/nix/store/3jflknpljm3hfr03fih3rwm18wdxdwkh-postgresql-17.5-jit",
-        "lib": "/nix/store/06mkcha74k49nzjg5zdlf8ywv2ij77sm-postgresql-17.5-lib",
-        "man": "/nix/store/z39cmrls5696pv6a99kglyyw309z2lj9-postgresql-17.5-man",
-        "out": "/nix/store/mdf05bq8zlvraxpxlyj3rg6660x3ramx-postgresql-17.5",
-        "plperl": "/nix/store/l7g0spdxs7wfhzlfz6584krb4wxbl0hn-postgresql-17.5-plperl",
-        "plpython3": "/nix/store/wivl4xjnsdka9cz3aiv5y7fg7rqg7jfp-postgresql-17.5-plpython3",
-        "pltcl": "/nix/store/n58hxn83kdxmhd2hx1jhbn9bca07595j-postgresql-17.5-pltcl"
+        "debug": "/nix/store/661ssr2ma5jah0ifj0ca3pjhxz8fmgv8-postgresql-17.6-debug",
+        "dev": "/nix/store/w9d09r1ziky5yjdpq0fb0lkpm93db6rv-postgresql-17.6-dev",
+        "doc": "/nix/store/bfgv1xi0r72hwy7sg2syz9mvrmm1iq6a-postgresql-17.6-doc",
+        "jit": "/nix/store/w856mf7gc0y81jsjppm77ww9k7l04dm6-postgresql-17.6-jit",
+        "lib": "/nix/store/b2l7jsirdac28nsih5y1y2i6ml7khlbh-postgresql-17.6-lib",
+        "man": "/nix/store/izkz6kkch9br4rcn3jzijds6galnswmj-postgresql-17.6-man",
+        "out": "/nix/store/zdmrsczynsanljim77c5fhmlgf8lnqgr-postgresql-17.6",
+        "plperl": "/nix/store/89plna3bfrlihpdl6h1nif7488j4lycw-postgresql-17.6-plperl",
+        "plpython3": "/nix/store/4539wyz2xpa70ihhbsfbizqj2a4nb0qi-postgresql-17.6-plpython3",
+        "pltcl": "/nix/store/kbxy78mf481232li36wvfcl2749xqlb1-postgresql-17.6-pltcl"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -484,36 +490,37 @@
     {
       "attr_path": "postgresql_17",
       "broken": false,
-      "derivation": "/nix/store/2jjbfpzq04aad7cyb57q7w7mvpl1d9vl-postgresql-17.5.drv",
+      "derivation": "/nix/store/1mga6fhj91w3vz2p9wgqcq7ss2gir21s-postgresql-17.6.drv",
       "description": "Powerful, open source object-relational database system",
       "install_id": "postgresql",
       "license": "PostgreSQL",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "postgresql-17.5",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "postgresql-17.6",
       "pname": "postgresql_17",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T01:20:12.612131Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:13:53.304183Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "17.5",
+      "version": "17.6",
       "outputs_to_install": [
         "man",
         "out"
       ],
       "outputs": {
-        "dev": "/nix/store/c6mk6kvrchibfmjc9fia8i0d064mfl51-postgresql-17.5-dev",
-        "doc": "/nix/store/1sh044b2grn7xd40afrqa56lvh1i4bkh-postgresql-17.5-doc",
-        "jit": "/nix/store/dwlbnv8qs5m3sz4vdln9d9bz6rilc5r6-postgresql-17.5-jit",
-        "lib": "/nix/store/83xc3vq9vmaix9ab0cx849ypnbcajv5q-postgresql-17.5-lib",
-        "man": "/nix/store/1q81qzabr82rn36zs9ll6s8c6briqbbv-postgresql-17.5-man",
-        "out": "/nix/store/dh5vca89l71qprnlhk8syb79c544s8wd-postgresql-17.5",
-        "plperl": "/nix/store/q4s9pzl97bf4lkxlwsamwb0q3w611ldy-postgresql-17.5-plperl",
-        "plpython3": "/nix/store/kvk8x0lphwfd5nkncv7ixn8j37964ihg-postgresql-17.5-plpython3",
-        "pltcl": "/nix/store/x7ngrwcymp5zmqm62qf5wixirsdm74vm-postgresql-17.5-pltcl"
+        "dev": "/nix/store/1ln3lngxzr913r6nh3qj605x82ijc5r7-postgresql-17.6-dev",
+        "doc": "/nix/store/s6gdj1jblsimi551jaw9a0ab3r6208sl-postgresql-17.6-doc",
+        "jit": "/nix/store/rvjip61mh1a2llmhwgrd08hvsbcnb59j-postgresql-17.6-jit",
+        "lib": "/nix/store/nigqc3d59kp0mlknain2ywd1kxzhh84a-postgresql-17.6-lib",
+        "man": "/nix/store/iv7n6gfg8vfjghhsnc8szdpx8nljnwjr-postgresql-17.6-man",
+        "out": "/nix/store/hfq4hh6nji29lrkd2d2h499s4rnfjvxr-postgresql-17.6",
+        "plperl": "/nix/store/4ywicb8zvp2qv0wslisgh9khd3f3mq8y-postgresql-17.6-plperl",
+        "plpython3": "/nix/store/fxiq5vdvb7zamdj467dn4i5jgfvwcdj3-postgresql-17.6-plpython3",
+        "pltcl": "/nix/store/zixqyfqp3df8cjxrggyv24r2mn6q03q4-postgresql-17.6-pltcl"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -522,37 +529,38 @@
     {
       "attr_path": "postgresql_17",
       "broken": false,
-      "derivation": "/nix/store/3yi9a1s1jjb20wfgb27jyqsw1d14kmip-postgresql-17.5.drv",
+      "derivation": "/nix/store/0ihzm6m1z1842bwzpm4g2957vxyr7d6m-postgresql-17.6.drv",
       "description": "Powerful, open source object-relational database system",
       "install_id": "postgresql",
       "license": "PostgreSQL",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=17f6bd177404d6d43017595c5264756764444ab8",
-      "name": "postgresql-17.5",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "postgresql-17.6",
       "pname": "postgresql_17",
-      "rev": "17f6bd177404d6d43017595c5264756764444ab8",
-      "rev_count": 835620,
-      "rev_date": "2025-07-26T16:59:46Z",
-      "scrape_date": "2025-07-29T01:47:27.074935Z",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:50:39.806163Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "17.5",
+      "version": "17.6",
       "outputs_to_install": [
         "man",
         "out"
       ],
       "outputs": {
-        "debug": "/nix/store/p9qmqlj43crbvya5zic4daxpa9irpcf6-postgresql-17.5-debug",
-        "dev": "/nix/store/dhvvss0cly7inw5m5gg00zaksn1x4k0a-postgresql-17.5-dev",
-        "doc": "/nix/store/wy4x55s5idkpjwdc38icsjj5fai7qr35-postgresql-17.5-doc",
-        "jit": "/nix/store/1ymacxkxm8z5v9yhh196gv82462vrja8-postgresql-17.5-jit",
-        "lib": "/nix/store/n8z6i9wdbv4wkckw88fcf85pjpydvdmw-postgresql-17.5-lib",
-        "man": "/nix/store/vrqqycznilgqy95rfrxp7ji9l8swdlc7-postgresql-17.5-man",
-        "out": "/nix/store/f1akpy48ng3zshls7ncfx0h45ca9kskg-postgresql-17.5",
-        "plperl": "/nix/store/3yjd6qmiz4965rwa3fz4pi2cvdzki63d-postgresql-17.5-plperl",
-        "plpython3": "/nix/store/x3g44jhfkzkdxziy8122fz4djh8hi6ia-postgresql-17.5-plpython3",
-        "pltcl": "/nix/store/sfjhv0zx9mklr23n9ybfwmlggw13ciy7-postgresql-17.5-pltcl"
+        "debug": "/nix/store/hzkqv89nrdz00npy3r5ly7hi8iq6i9s4-postgresql-17.6-debug",
+        "dev": "/nix/store/l8m7mbvqxdi9bd5apl8s49kjpnzrcv6c-postgresql-17.6-dev",
+        "doc": "/nix/store/dg0cwp756r82crxmdv8vzq7d7kjzi4qi-postgresql-17.6-doc",
+        "jit": "/nix/store/w6f1f7dxai435w963fzifbf14kxbv5s3-postgresql-17.6-jit",
+        "lib": "/nix/store/msjxcqa4x2f52dyq10rbrbw6k0m0hi90-postgresql-17.6-lib",
+        "man": "/nix/store/z2s4zb4kxh80v7npbin8pv27vjf5fc4k-postgresql-17.6-man",
+        "out": "/nix/store/jq2kbdw6ljv9i47jz23pm072cfyxwpfj-postgresql-17.6",
+        "plperl": "/nix/store/cq3zxs5dw2xy0hib0fpi70k4kack640z-postgresql-17.6-plperl",
+        "plpython3": "/nix/store/sjb555ik5jrrk2gllpgcdmvwxhj5kv1v-postgresql-17.6-plpython3",
+        "pltcl": "/nix/store/0w5sqnpakfk7qfm1yfbkwajz75pha4qj-postgresql-17.6-pltcl"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
