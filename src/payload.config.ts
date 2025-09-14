@@ -58,7 +58,7 @@ const flattenLexicalRichText = (nodes) => {
 }
 
 export default buildConfig({
-  cors: [process.env.FRONT_URL],
+  cors: '*',
   admin: {
     user: Users.slug,
     importMap: {
