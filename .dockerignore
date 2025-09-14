@@ -1,0 +1,15 @@
+.flox
+.next
+.vscode
+media
+node_modules
+.dockerignore
+.editorconfig
+.env
+.env.example
+.git
+.git*
+.prettierrc.json
+eslint.config.mjs
+next-env.d.ts
+README.md
