@@ -39,8 +39,12 @@ import { DisclosureWidget } from './blocks/disclosureWidget'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-// Place the utility function here
-const flattenLexicalRichText = (nodes) => {
+type SerializedLexicalNode = {
+  text?: string
+  children?: SerializedLexicalNode[]
+}
+
+const flattenLexicalRichText = (nodes: SerializedLexicalNode[]) => {
   let plainText = ''
   if (!nodes || nodes.length === 0) {
     return plainText
