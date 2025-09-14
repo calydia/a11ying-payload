@@ -20,9 +20,6 @@ export const WCAGPrinciples: CollectionConfig = {
       name: 'title',
       type: 'text',
       localized: true,
-      admin: {
-        useAsTitle: true,
-      },
     },
     {
       name: 'principleNumber',
