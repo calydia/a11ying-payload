@@ -18,25 +18,25 @@
     "@payloadcms/db-postgres": "latest",
     "@payloadcms/next": "latest",
     "@payloadcms/payload-cloud": "latest",
-    "@payloadcms/plugin-search": "^3.65.0",
+    "@payloadcms/plugin-search": "^3.66.0",
     "@payloadcms/richtext-lexical": "latest",
-    "@payloadcms/ui": "^3.65.0",
+    "@payloadcms/ui": "^3.66.0",
     "add": "^2.0.6",
     "cross-env": "^10.1.0",
     "graphql": "^16.12.0",
-    "next": "16.0.4",
+    "next": "16.0.7",
     "payload": "latest",
-    "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react": "19.2.1",
+    "react-dom": "19.2.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/eslintrc": "^3.3.3",
     "@types/node": "^24.10.1",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "eslint": "^9.39.1",
-    "eslint-config-next": "16.0.4",
-    "prettier": "^3.6.2",
+    "eslint-config-next": "16.0.7",
+    "prettier": "^3.7.4",
     "typescript": "5.9.3"
   },
   "engines": {
