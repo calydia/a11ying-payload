@@ -1,7 +1,7 @@
 {
   "lockfile-version": 1,
   "manifest": {
-    "version": 1,
+    "schema-version": "1.12.0",
     "install": {
       "gum": {
         "pkg-path": "gum"
@@ -13,7 +13,8 @@
         "pkg-path": "pnpm"
       },
       "postgresql": {
-        "pkg-path": "postgresql_17"
+        "pkg-path": "postgresql_17",
+        "outputs": "all"
       }
     },
     "vars": {
@@ -31,19 +32,11 @@
         "aarch64-linux",
         "x86_64-darwin",
         "x86_64-linux"
-      ],
-      "allow": {
-        "licenses": []
-      },
-      "semver": {}
+      ]
     },
     "services": {
       "postgres": {
-        "command": "postgres -D ${PGDATA} -c unix_socket_directories=${PGHOST} -c listen_addresses=${PGHOSTADDR} -p ${PGPORT}",
-        "vars": null,
-        "is-daemon": null,
-        "shutdown": null,
-        "systems": null
+        "command": "postgres -D ${PGDATA} -c unix_socket_directories=${PGHOST} -c listen_addresses=${PGHOSTADDR} -p ${PGPORT}"
       }
     }
   },
