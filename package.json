@@ -4,6 +4,7 @@
   "description": "My accessibility site backend with Payload CMS",
   "license": "MIT",
   "type": "module",
+  "packageManager": "pnpm@11.1.2",
   "scripts": {
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build --webpack",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
