@@ -2,7 +2,7 @@ schema-version = "1.12.0"
 
 
 [install]
-nodejs.pkg-path = "nodejs_22"
+nodejs.pkg-path = "nodejs_24"
 pnpm.pkg-path = "pnpm"
 postgresql.pkg-path = "postgresql_17"
 postgresql.outputs = "all"
@@ -99,6 +99,15 @@ cat <<EOM
      ║                                               ║
      ║  Run locally:                                 ║
      ║  👉 pnpm dev                                  ║
+     ║                                               ║
+     ║  Upgrade environment:                         ║
+     ║  👉 flox upgrade toplevel                     ║
+     ║  👉 exit && flox activate -s                  ║
+     ║  👉 flox gc                                   ║
+     ║                                               ║
+     ║  After upgrading, keep packageManager aligned ║
+     ║  with pnpm and update Dockerfile if the       ║
+     ║  Node.js major version changes.               ║
      ║                                               ║
      ╚═══════════════════════════════════════════════╝
 EOM

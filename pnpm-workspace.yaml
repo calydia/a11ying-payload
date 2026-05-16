@@ -1,3 +1,13 @@
 onlyBuiltDependencies:
   - esbuild
   - sharp
+  - unrs-resolver
+
+# When upgrading to pnpm 11, replace onlyBuiltDependencies with allowBuilds.
+# pnpm 11 consolidates build-dependency settings into an allowBuilds map:
+# https://pnpm.io/next/migration
+#
+# allowBuilds:
+#   esbuild: true
+#   sharp: true
+#   unrs-resolver: true
